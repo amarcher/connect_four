@@ -5,12 +5,15 @@ function Controller(model, view) {
 
 Controller.prototype.bindEventListeners = function() {
   self = this;
-  this.view.buttons.on("click", function(e) {
-    if (e.currentTarget.name === "reset-button") {
+  $(document).on("click", self.view.buttons, function(e) {
+    console.log(self);
+    console.log(this);
+    console.log(e.target);
+    if (e.target.name === "reset-button") {
       self.resetBoard();
       self.resetView();
     } else {
-      var colClicked = e.currentTarget.name.slice(-1);
+      var colClicked = e.target.name.slice(-1);
       self.addNextMove(colClicked);
     };
   });
