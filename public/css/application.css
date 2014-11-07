@@ -24,10 +24,10 @@
   float: left;
   background-color: yellow;
   outline-style: none;
-  -moz-user-select: none; 
-  -khtml-user-select: none; 
-  -webkit-user-select: none; 
-  -o-user-select: none; 
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .row {
@@ -37,10 +37,10 @@
   border-radius: 50%;
   background-color: white;
   outline-style: none;
-  -moz-user-select: none; 
-  -khtml-user-select: none; 
-  -webkit-user-select: none; 
-  -o-user-select: none; 
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 button {
@@ -50,18 +50,32 @@ button {
   text-align: center;
   z-index: 100;
   float: left;
-  margin: 0px 1px;
+  margin: 0px 1.5px;
   width: 12.5%;
   outline-style: none;
-  -moz-user-select: none; 
-  -khtml-user-select: none; 
-  -webkit-user-select: none; 
-  -o-user-select: none; 
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .reset > button {
   width: 100px;
   border-radius: 10px 50px;
+}
+
+.mode_select > button {
+  float: right;
+  width: 80px;
+  border-radius: 50px 10px;
+}
+
+.selected {
+  background-color: yellow;
+}
+
+.mode_select {
+  margin-right: 20px;
 }
 
 p.piece {

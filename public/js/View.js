@@ -28,7 +28,20 @@ View.prototype.getColor = function(character) {
   }
 }
 
+View.prototype.freezeButtons = function() {
+  $('button').prop("disabled", "disabled");
+};
+
+View.prototype.unfreezeButtons = function() {
+  $('button:not(.selected)').prop("disabled", false);
+};
+
 View.prototype.resetView = function() {
   $('p').remove();
 };
+
+View.prototype.switchMode = function(mode) {
+  $(".selected").removeClass("selected").prop("disabled", false);
+  $("button[name='" + mode +"']").addClass("selected").prop("disabled", "disabled");
+}
 
