@@ -1,13 +1,14 @@
 #container {
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 #board {
-  position: relative;
   width: 400px;
   height: 400px;
   margin: 10% auto;
+  z-index: 10;
 }
 
 .col {
@@ -27,6 +28,7 @@
 
 button {
   text-align: center;
+  z-index: 100;
 }
 
 p.piece {
