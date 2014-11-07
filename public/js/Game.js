@@ -20,3 +20,7 @@ Game.prototype.toggleActivePlayer = function(player) {
 Game.prototype.isWon = function(){
   return this.board.hasWinner()
 }
+
+Game.prototype.placePiece = function(col){
+  return this.board.placePiece(col, this.activePlayer);
+}

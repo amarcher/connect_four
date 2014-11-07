@@ -1,11 +1,11 @@
 .col {
-  border: 1px solid black;
+  border: 1px solid gray;
   width: 50px;
   float: left;
 }
 
 .row {
-  border: 1px solid black;
+  border: 1px solid gray;
   width: 50px;
   height: 50px;
 }
