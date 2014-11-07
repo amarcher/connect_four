@@ -4,7 +4,7 @@ function View() {
 
 View.prototype.renderPiece = function(rowNum, colClicked, currentColor) {
   var pieceColor = this.getColor(currentColor);
-  $piece = $('<p class="piece ' + pieceColor + '"></p>');
+  $piece = $('<p class="piece ' + pieceColor + '"><span></span></p>');
   $piece.appendTo('#col' + colClicked + ' #row' + rowNum);
   $piece.animate({bottom: '0px'});
   // $("#col" + colClicked + " #row" + rowNum).addClass(pieceColor);
