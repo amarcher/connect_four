@@ -1,13 +1,25 @@
+#container {
+  position: fixed;
+  width: 100%;
+}
+
+#board {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 10% auto;
+}
+
 .col {
   border: 1px solid gray;
-  width: 50px;
+  width: 12.5%;
   float: left;
   background-color: yellow;
 }
 
 .row {
   border: 1px solid gray;
-  width: 50px;
+  width: 100%;
   height: 50px;
   border-radius: 50%;
   background-color: white;
@@ -18,14 +30,27 @@ button {
 }
 
 p.piece {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   position: relative;
   bottom: 400px;
   left: 0px;
   margin: 0px 0px;
   padding: 0px 0px;
+}
+
+p.piece span {
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-radius: 50%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .red {
