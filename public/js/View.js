@@ -12,7 +12,7 @@ View.prototype.renderPiece = function(rowNum, colClicked, currentColor) {
   // $piece = $('<p class="' + this.currentColor + '"></p>');
   // $('#col' + colClicked + ' #row0').innerHTML($piece);
   $("#col" + colClicked + " #row" + rowNum).addClass(pieceColor);
-}
+};
 
 View.prototype.renderWinner = function(winnerColor) {
   var winner;
@@ -22,8 +22,8 @@ View.prototype.renderWinner = function(winnerColor) {
     winner = "Red";
   }
   alert(winner + " is the winner!");
-}
+};
 
 View.prototype.columnFullError = function() {
-  alert("Column's full. Pick another column.")
-}
+  alert("Column's full. Pick another column.");
+};

@@ -1,13 +1,13 @@
-ROWS = 6
+ROWS = 6;
 
 function Board() {
-  this.columns = [ [], [], [], [], [], [], [] ]
+  this.columns = [ [], [], [], [], [], [], [] ];
 }
 
 Board.prototype.placePiece = function(columnNumber, color) {
   if (! this.full(columnNumber) ) {
     this.columns[columnNumber].push(color);
-    var rowIndex = ROWS - this.columns[columnNumber].length
+    var rowIndex = ROWS - this.columns[columnNumber].length;
     return rowIndex; // where piece dropped
   } else {
     console.log('full');
@@ -17,7 +17,7 @@ Board.prototype.placePiece = function(columnNumber, color) {
 
 Board.prototype.full = function(columnNumber) {
   return this.columns[columnNumber].length > ROWS;
-}
+};
 
 Board.prototype.hasFourInARow = function(row){
   var stringJoin = row.join("");
@@ -28,7 +28,7 @@ Board.prototype.hasFourInARow = function(row){
   } else {
     return false;
   }
-}
+};
 
 Board.prototype.checkColumns = function() {
   for(var i=0;i < this.columns.length; i++){
@@ -38,7 +38,7 @@ Board.prototype.checkColumns = function() {
     }
   }
   return false;
-}
+};
 
 Board.prototype.checkRows = function() {
   var rows = [ [], [], [], [], [], [] ];
@@ -59,7 +59,7 @@ Board.prototype.checkRows = function() {
     console.log('rows[' + i + ']: ' + rows[i])
   }
   return false;
-}
+};
 
 Board.prototype.checkDiagonals = function() {
   var c = this.columns;
@@ -80,18 +80,18 @@ Board.prototype.checkDiagonals = function() {
 
   for(var i=0; i < downright_diagonals.length; i++){
     if (this.hasFourInARow(downright_diagonals[i])) {
-      console.log('downright_diagonals!: ' + i + ' ' + downright_diagonals[i])
+      console.log('downright_diagonals!: ' + i + ' ' + downright_diagonals[i]);
       return true;
     }
   }
   for(var i=0; i < downleft_diagonals.length; i++){
     if (this.hasFourInARow(downleft_diagonals[i])) {
-      console.log('downleft_diagonals!: ' + i + ' ' + downleft_diagonals[i])
+      console.log('downleft_diagonals!: ' + i + ' ' + downleft_diagonals[i]);
       return true;
     }
   }
-  return false
-}
+  return false;
+};
 
 
 Board.prototype.hasWinner = function() {
@@ -100,4 +100,4 @@ Board.prototype.hasWinner = function() {
   } else {
     return false;
   }
-}
+};
