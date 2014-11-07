@@ -8,8 +8,8 @@ Controller.prototype.bindEventListeners = function() {
   this.view.buttons.on("click", function(e) {
     var colClicked = e.currentTarget.name.slice(-1);
     self.addNextMove(colClicked);
-  })
-}
+  });
+};
 
 Controller.prototype.addNextMove = function(colClicked) {
   var rowNum = this.model.placePiece(colClicked, this.model.activePlayer);

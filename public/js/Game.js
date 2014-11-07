@@ -1,4 +1,4 @@
-FIRST_PLAYER = 'B'
+FIRST_PLAYER = 'B';
 
 function Game() {
   this.board = null;
@@ -7,7 +7,7 @@ function Game() {
 
 Game.prototype.use = function(board) {
   this.board = board;
-}
+};
 
 Game.prototype.toggleActivePlayer = function(player) {
   if (this.activePlayer === 'B') {
@@ -15,12 +15,12 @@ Game.prototype.toggleActivePlayer = function(player) {
   } else {
     this.activePlayer = 'B';
   }
-}
+};
 
 Game.prototype.isWon = function(){
-  return this.board.hasWinner()
-}
+  return this.board.hasWinner();
+};
 
 Game.prototype.placePiece = function(col){
   return this.board.placePiece(col, this.activePlayer);
-}
+};
