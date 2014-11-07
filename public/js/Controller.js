@@ -36,10 +36,8 @@ Controller.prototype.addNextMove = function(colClicked) {
   }
 
   if (this.model.isBoardFull()) {
-    debugger;
     this.view.boardIsFull();
   }
-
 };
 
 Controller.prototype.resetBoard = function() {
@@ -51,9 +49,15 @@ Controller.prototype.resetView = function() {
   this.view.resetView();
 };
 
+
 Controller.prototype.switchMode = function(mode) {
   this.view.switchMode(mode);
   this.model.switchMode(mode);
   this.resetBoard();
   this.resetView();
-}
+};
+
+Controller.prototype.takeComputerTurn = function () {
+  var temp = this.model.findANonFullColumn();
+  debugger;
+};

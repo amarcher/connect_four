@@ -103,17 +103,13 @@ Board.prototype.hasWinner = function() {
 };
 
 Board.prototype.isBoardFull = function() {
-  var colFullArray = [];
 
   for(var i=0; i < this.columns.length; i++) {
-    colFullArray.push(this.columns[i].full);
-  }
-
-  for(var i=0; i < colFullArray.length; i++) {
-    if (colFullArray[i] === false ) {
+    if (! this.columns[i].full) {
       return false;
     };
-
     return true;
   };
 };
+
+
