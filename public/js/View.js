@@ -4,9 +4,10 @@ function View() {
 
 View.prototype.renderPiece = function(rowNum, colClicked, currentColor) {
   var pieceColor = this.getColor(currentColor);
-  // $piece = $('<p class="piece ' + this.currentColor + '"></p>');
-  // $('#col' + colClicked + ' #row0').innerHTML($piece);
-  $("#col" + colClicked + " #row" + rowNum).addClass(pieceColor);
+  $piece = $('<p class="piece ' + pieceColor + '"></p>');
+  $piece.appendTo('#col' + colClicked + ' #row' + rowNum);
+  $piece.animate({bottom: '0px'});
+  // $("#col" + colClicked + " #row" + rowNum).addClass(pieceColor);
 };
 
 View.prototype.renderWinner = function(winnerColor) {
