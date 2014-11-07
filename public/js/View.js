@@ -40,8 +40,13 @@ View.prototype.resetView = function() {
   $('p').remove();
 };
 
+
 View.prototype.switchMode = function(mode) {
   $(".selected").removeClass("selected").prop("disabled", false);
   $("button[name='" + mode +"']").addClass("selected").prop("disabled", "disabled");
+}
+
+View.prototype.boardIsFull = function() {
+  alert("Game is tied, press reset to play again");
 }
 

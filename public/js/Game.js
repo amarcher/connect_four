@@ -26,5 +26,9 @@ Game.prototype.placePiece = function(col){
 };
 
 Game.prototype.switchMode = function() {
+}
+
+Game.prototype.isBoardFull = function() {
+  return this.board.isBoardFull();
 
 }

@@ -101,3 +101,19 @@ Board.prototype.hasWinner = function() {
     return false;
   }
 };
+
+Board.prototype.isBoardFull = function() {
+  var colFullArray = [];
+
+  for(var i=0; i < this.columns.length; i++) {
+    colFullArray.push(this.columns[i].full);
+  }
+
+  for(var i=0; i < colFullArray.length; i++) {
+    if (colFullArray[i] === false ) {
+      return false;
+    };
+
+    return true;
+  };
+};

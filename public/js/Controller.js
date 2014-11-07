@@ -34,6 +34,12 @@ Controller.prototype.addNextMove = function(colClicked) {
   } else {
     this.view.columnFullError();
   }
+
+  if (this.model.isBoardFull()) {
+    debugger;
+    this.view.boardIsFull();
+  }
+
 };
 
 Controller.prototype.resetBoard = function() {
