@@ -29,6 +29,6 @@ View.prototype.getColor = function(character) {
 }
 
 View.prototype.resetView = function() {
-  console.log('reset!!!');
+  $('p').remove();
 };
 

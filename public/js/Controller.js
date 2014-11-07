@@ -31,7 +31,8 @@ Controller.prototype.addNextMove = function(colClicked) {
 };
 
 Controller.prototype.resetBoard = function() {
-
+  var board = new Board();
+  this.model.use(board);
 };
 
 Controller.prototype.resetView = function() {
