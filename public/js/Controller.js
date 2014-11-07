@@ -6,12 +6,15 @@ function Controller(model, view) {
 Controller.prototype.bindEventListeners = function() {
   self = this;
   $(document).on("click", self.view.buttons, function(e) {
-    console.log(self);
-    console.log(this);
-    console.log(e.target);
     if (e.target.name === "reset-button") {
       self.resetBoard();
       self.resetView();
+    } else if (e.target.name === 'lan-party') {
+      self.switchMode('lan-party');
+    } else if (e.target.name === 'local-mode') {
+      self.switchMode('local-mode');
+    } else if (e.target.name === 'vs-cpu') {
+      self.switchMode('vs-cpu');
     } else {
       var colClicked = e.target.name.slice(-1);
       self.addNextMove(colClicked);
@@ -41,3 +44,10 @@ Controller.prototype.resetBoard = function() {
 Controller.prototype.resetView = function() {
   this.view.resetView();
 };
+
+Controller.prototype.switchMode = function(mode) {
+  this.view.switchMode(mode);
+  this.model.switchMode(mode);
+  this.resetBoard();
+  this.resetView();
+}

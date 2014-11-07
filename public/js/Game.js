@@ -24,3 +24,7 @@ Game.prototype.isWon = function(){
 Game.prototype.placePiece = function(col){
   return this.board.placePiece(col, this.activePlayer);
 };
+
+Game.prototype.switchMode = function() {
+
+}
