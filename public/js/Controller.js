@@ -12,10 +12,8 @@ Controller.prototype.bindEventListeners = function() {
 }
 
 Controller.prototype.addNextMove = function(colClicked) {
-  console.log(this);
-  console.log(colClicked);
   var rowNum = this.model.placePiece(colClicked, this.model.activePlayer);
-  if (rowNum) {
+  if (rowNum >= 0) {
     this.view.renderPiece(rowNum, colClicked, this.model.activePlayer);
     if (this.model.isWon()) {
       this.view.renderWinner(this.model.activePlayer);

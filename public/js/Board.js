@@ -6,8 +6,9 @@ function Board() {
 
 Board.prototype.placePiece = function(columnNumber, color) {
   if (! this.full(columnNumber) ) {
-    this.columns[columnNumber].unshift(color);
-    return ROWS - this.columns[columnNumber].length; // where piece dropped
+    this.columns[columnNumber].push(color);
+    var rowIndex = ROWS - this.columns[columnNumber].length
+    return rowIndex; // where piece dropped
   } else {
     console.log('full');
     return false;
@@ -15,7 +16,7 @@ Board.prototype.placePiece = function(columnNumber, color) {
 };
 
 Board.prototype.full = function(columnNumber) {
-  return this.columns[columnNumber].length === ROWS;
+  return this.columns[columnNumber].length > ROWS;
 }
 
 Board.prototype.hasFourInARow = function(row){
@@ -32,6 +33,7 @@ Board.prototype.hasFourInARow = function(row){
 Board.prototype.checkColumns = function() {
   for(var i=0;i < this.columns.length; i++){
     if (this.hasFourInARow(this.columns[i])) {
+      console.log('columns!: ' + i + ' ' + this.columns[i]);
       return true;
     }
   }
@@ -49,10 +51,12 @@ Board.prototype.checkRows = function() {
       }
     }
   }
-  for(var i=0;i < rows.length; i++){
+  for(var i = rows.length - 1; i >= 0; i--){
     if (this.hasFourInARow(rows[i])) {
+      console.log('rows!: ' + i + ' ' + rows[i])
       return true;
     }
+    console.log('rows[' + i + ']: ' + rows[i])
   }
   return false;
 }
@@ -76,11 +80,13 @@ Board.prototype.checkDiagonals = function() {
 
   for(var i=0; i < downright_diagonals.length; i++){
     if (this.hasFourInARow(downright_diagonals[i])) {
+      console.log('downright_diagonals!: ' + i + ' ' + downright_diagonals[i])
       return true;
     }
   }
   for(var i=0; i < downleft_diagonals.length; i++){
     if (this.hasFourInARow(downleft_diagonals[i])) {
+      console.log('downleft_diagonals!: ' + i + ' ' + downleft_diagonals[i])
       return true;
     }
   }
