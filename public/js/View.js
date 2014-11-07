@@ -27,3 +27,8 @@ View.prototype.getColor = function(character) {
     return "red";
   }
 }
+
+View.prototype.resetView = function() {
+  console.log('reset!!!');
+};
+

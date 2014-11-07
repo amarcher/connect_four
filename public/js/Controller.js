@@ -6,8 +6,13 @@ function Controller(model, view) {
 Controller.prototype.bindEventListeners = function() {
   self = this;
   this.view.buttons.on("click", function(e) {
-    var colClicked = e.currentTarget.name.slice(-1);
-    self.addNextMove(colClicked);
+    if (e.currentTarget.name === "reset-button") {
+      self.resetBoard();
+      self.resetView();
+    } else {
+      var colClicked = e.currentTarget.name.slice(-1);
+      self.addNextMove(colClicked);
+    };
   });
 };
 
@@ -23,4 +28,12 @@ Controller.prototype.addNextMove = function(colClicked) {
   } else {
     this.view.columnFullError();
   }
+};
+
+Controller.prototype.resetBoard = function() {
+
+};
+
+Controller.prototype.resetView = function() {
+  this.view.resetView();
 };
