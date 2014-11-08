@@ -101,3 +101,15 @@ Board.prototype.hasWinner = function() {
     return false;
   }
 };
+
+Board.prototype.isBoardFull = function() {
+
+  for(var i=0; i < this.columns.length; i++) {
+    if (! this.columns[i].full) {
+      return false;
+    };
+    return true;
+  };
+};
+
+
