@@ -10,10 +10,13 @@ Controller.prototype.bindEventListeners = function() {
       self.resetBoard();
       self.resetView();
     } else if (e.target.name === 'lan-party') {
+      self.resetBoard();
       self.switchMode('lan-party');
     } else if (e.target.name === 'local-mode') {
+      self.resetBoard();
       self.switchMode('local-mode');
     } else if (e.target.name === 'vs-cpu') {
+      self.resetBoard();
       self.switchMode('vs-cpu');
     } else {
       var colClicked = e.target.name.slice(-1);
@@ -32,7 +35,8 @@ Controller.prototype.addNextMove = function(colClicked) {
       this.model.toggleActivePlayer();
       if (this.model.mode === MODES[1] && this.model.activePlayer === 'R' ) { // local-mode
         setTimeout(this.takeComputerTurn.bind(this),400);
-      }
+      } 
+      // this.view.unfreezeButtons();
     }
   } else {
     this.view.columnFullError();
@@ -46,6 +50,7 @@ Controller.prototype.addNextMove = function(colClicked) {
 Controller.prototype.resetBoard = function() {
   var board = new Board();
   this.model.use(board);
+  this.model.activePlayer = FIRST_PLAYER;
 };
 
 Controller.prototype.resetView = function() {
