@@ -1,5 +1,5 @@
 FIRST_PLAYER = 'B';
-MODES = ['localMode', 'vsCPU', 'lanParty' ]
+MODES = ['local-mode', 'vs-cpu', 'lan-party' ]
 
 function Game() {
   this.board = null;
@@ -27,7 +27,8 @@ Game.prototype.placePiece = function(col){
   return this.board.placePiece(col, this.activePlayer);
 };
 
-Game.prototype.switchMode = function() {
+Game.prototype.switchMode = function(mode) {
+  this.mode = mode;
 }
 
 Game.prototype.isBoardFull = function() {
@@ -39,11 +40,11 @@ Game.prototype.findANonFullColumn = function() {
   var colArray = [0,1,2,3,4,5,6];
   var shuffledArray = this.shuffleArray(colArray);
   self = this;
-  shuffledArray.forEach(function(element, index, array) {
-    if( ! self.board.full(element)) {
-      return element;
+  for (var i=0; i< shuffledArray.length; i++) {
+    if( ! self.board.full(shuffledArray[i])) {
+      return shuffledArray[i];
     }
-  });
+  };
 };
 
 Game.prototype.shuffleArray = function(array) {

@@ -4,7 +4,7 @@ function Controller(model, view) {
 }
 
 Controller.prototype.bindEventListeners = function() {
-  self = this;
+  var self = this;
   $(document).on("click", self.view.buttons, function(e) {
     if (e.target.name === "reset-button") {
       self.resetBoard();
@@ -30,6 +30,9 @@ Controller.prototype.addNextMove = function(colClicked) {
       this.view.renderWinner(this.model.activePlayer);
     } else {
       this.model.toggleActivePlayer();
+      if (this.model.mode === MODES[1] && this.model.activePlayer === 'R' ) { // local-mode
+        setTimeout(this.takeComputerTurn.bind(this),400);
+      }
     }
   } else {
     this.view.columnFullError();
@@ -58,6 +61,7 @@ Controller.prototype.switchMode = function(mode) {
 };
 
 Controller.prototype.takeComputerTurn = function () {
-  var temp = this.model.findANonFullColumn();
-  debugger;
+  var nonFullColumn = this.model.findANonFullColumn();
+  var button = this.view.buttons.get(nonFullColumn);
+  $(button).trigger('click').bind(this);
 };

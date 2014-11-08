@@ -59,6 +59,10 @@ button {
   -o-user-select: none;
 }
 
+button:active {
+  background-color: yellow;
+}
+
 .reset > button {
   width: 100px;
   border-radius: 10px 50px;
